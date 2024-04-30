@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .custom_input_container {
+    position: relative;
+    width: 90%;
+  }
+
+  .label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  /* .input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  top: 0px;
+  font-size: 12px;
+  color: #888;
+} */
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="custom_input_container">
+      <label class="label" for="input">Este es un texto</label>
+      <input class="input" id="input" type="text">
+    </div>
+  </div>
+</body>
+
+
+<script>
+  const input = document.getElementById('input');
+
+  const label = document.querySelector('.label');
+
+  input.addEventListener('click', () => {
+    label.style.top = '-20px';
+    label.style.fontSize = '12px';
+    label.style.color = '#888';
+  });
+
+  input.addEventListener('blur', () => {
+    if (input.value === '') {
+      label.style.top = '10px';
+      label.style.fontSize = '16px';
+      label.style.color = 'inherit';
+    }
+  });
+</script>
+
+</html>
